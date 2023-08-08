@@ -1,0 +1,27 @@
+{% extends 'fooditems/base.html' %}
+
+{%block body%}
+<div class="container">
+    <div class="row" >
+        <div class="col-md-6">
+            <img src="{{item.image}} " style="width: 18rem;      position: absolute;     top: 50%;     left: 40%;     transform: translate(-50%, -50%);  border: none; border-radius: 20px;  padding: 10px;"  class="card">
+        </div>
+        
+        <div class="col-md-6" style="     position: absolute;     top: 50%;     left: 80%;     transform: translate(-50%, -50%);     padding: 10px;">
+            <h3>{{item.item_name}}</h3>
+            <h4>{{item.item_desc}}</h4>
+            <h5>${{item.price}}</h5>
+            <a href="{% url 'food:delete' item.id %}">Delete</a>
+        </div>
+       
+    </div>
+    <div class="row" class="text-justify fw-bold" style="  width:450px; position: absolute; top:70% ;left:33%">
+        <h6>{{item.item_note}}</h6>
+       
+    </div>
+</div>
+
+<!-- <h1>{{item.item_name}}</h1>
+<h1>{{item.item_desc}}</h1>
+<h1>{{item.price}}</h1> -->
+{% endblock %}

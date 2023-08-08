@@ -1,0 +1,36 @@
+{% extends 'fooditems/base.html' %}
+ 
+{% block body %}
+<div class="container" style="margin: 70px 80px;" >
+    <div class="row">
+        <div class="col-md-3 offset-md-4">
+
+<div class="card">
+    <div class="card-header text-white bg-info">
+        <div class="card-title">
+            Add Item
+        </div>
+    </div>
+    <div class="card-body text-justify">
+<form method="POST"  >
+    {% csrf_token %}
+
+    {% for field in item_form%}
+    <div class="form-group">
+    {{field.name.capitalize}}
+    <br>
+    {{field}}
+</div>
+  
+    {%endfor%}
+
+    <button type="submit">Save </button>
+   
+</form>
+</div>
+</div>
+</div>
+</div>
+</div>
+{% endblock %}
+ 

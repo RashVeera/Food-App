@@ -1,0 +1,55 @@
+{% extends 'fooditems/base.html' %}
+{% load static%}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="{% static 'fooditems/style.css'}" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+
+</head>
+<body>
+    {%block body%}
+    {%  for item in item_list %}
+
+    <!-- <div class="card" style="width: 18rem;">
+        <img src="..." class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">Card title</h5>
+          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+          <a href="#" class="btn btn-primary">Go somewhere</a>
+        </div>
+      </div> -->
+      
+
+    <div class="row">
+        <div class="col-md-3 offset-md-2">         
+            <img class="card " style="width: 18rem;" src="{{item.image}} "/>   
+        </div>
+        <div class="col-md-4">
+            <h3>{{item.item_name}}</h3>
+            <h4>{{item.item_desc}}</h4>
+            <h5>${{item.price}}</h5>
+            <!-- <h5>{{item.user_name}}</h5> -->
+        </div>
+        <div class="col-md-2">
+            <a href="{% url 'food:details' item.id %}" center class="btn btn-success">Details</a>
+        </div>
+
+    </div>
+
+    
+<!-- <ul>
+    <li>
+        <a href="{% url 'food:details' item.id %}">{{item.id}}--{{item.item_name}}  </a>
+       
+    </li>
+</ul> -->
+{% endfor %}
+{% endblock %}
+</body>
+</html>
